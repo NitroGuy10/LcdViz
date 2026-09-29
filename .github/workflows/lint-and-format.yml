@@ -1,0 +1,26 @@
+name: Lint and Format
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install .
+          pip install ruff pytest
+      
+      - parallel:
+        - name: Lint check
+          run: ruff check --output-format=github
+
+        - name: Format check
+          run: ruff format --diff
+
+        - name: Run tests
+          run: pytest
