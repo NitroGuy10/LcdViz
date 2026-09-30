@@ -3,9 +3,7 @@ name = "lcdviz"
 version = "0.1.0"
 description = "A library for controlling 20x4 Character LCDs that actually treats them like screens"
 readme = "README.md"
-authors = [
-    { name = "NitroGuy10" }
-]
+authors = [{ name = "NitroGuy10" }]
 requires-python = ">=3.13"
 dependencies = [
     "gpiozero>=2.0.1.post3",
@@ -19,14 +17,10 @@ requires = ["uv_build>=0.12.20,<0.13.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
-dev = [
-    "pytest>=9.1.1",
-    "ruff>=0.16.9",
-]
+dev = ["pytest>=9.1.1", "ruff>=0.16.9"]
 
 [tool.ruff]
-line-length = 79
+line-length = 88
 
 [tool.ruff.lint]
-# Add `line-too-long` rule
-extend-select = ["E501"]
+extend-select = ["E501", "I"]
